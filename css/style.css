@@ -25,35 +25,44 @@ nav {
 }
 
 #logo {
-  width: 80px;
+  float: right;
+  width: 70px;
   height: auto;
-  padding-top: 5px;
-  padding-left: 20px;
+  margin: 7px 13px; /* Margin top = 7px Margin L/R = 13px*/
+  border-radius: 8px;
+  padding: 7px 13px;
+  display: none; /* FAZ DESAPARECER */
+}
+
+#logo:hover {
+  background: #999;
+  transition: .5s;
 }
 
 nav ul {
-  list-style: none;
-  float: right;
-  margin-right: 69%;
+  float: left;
 }
 
 nav ul li {
   display: inline-block;
-  margin: 22px 20px;
+  margin: 22px 15px;
 }
 
-ul li a{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+nav ul li a{
+  font-family: 'Montserrat',
+  sans-serif;
   text-align: center;
   align-items: center;
   text-transform: uppercase;
   color: #000;
   text-decoration: none;
+  border-radius: 3px;
+  padding: 7px 13px;
 }
 
-ul li a:hover{
-  color: #999;
-  text-decoration: underline;
+nav ul li a:hover{
+  background: #999;
+  transition: .5s;
 }
 
 #destaque figure {
@@ -152,21 +161,44 @@ footer ul {
 footer ul li {
   display: inline-block;
 }
-footer ul li a {
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  display: block;
-  width: 39px;
-  height: 39px;
-  background-color: #F00;
-  background-image: url('../images/social_sprites.png');
+
+#check {
+  display: none;
 }
-footer ul li:nth-child(2) a {
-  background-position-x: -156px;
+
+
+@media (max-width: 952px) {
+  ul li a {
+    font-size: 16px;
+  }
 }
-footer ul li:nth-child(3) a {
-  background-position-x: 119px;
-}
-footer ul li a:hover {
-  background-position-y: -39px;
+
+@media (max-width: 858px) {
+  #logo {
+    display: block;
+  }
+  nav ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    transition: all .5s;
+    text-align: center;
+  }
+  nav ul li{
+    display: block;
+    margin-top: 60px;
+  }
+  nav ul li a {
+    font-size: 20px;
+    color: rgb(241, 238, 238);
+  }
+  nav ul li a:hover {
+    background: rgb(29, 28, 28);
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
 }
