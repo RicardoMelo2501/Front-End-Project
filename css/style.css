@@ -1,44 +1,51 @@
-body {
-  font-family: verdana, arial, helvetica, sans-serif;
-  background-color: rgb(115, 182, 221);
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: rgb(54, 50, 50);
+}
+
 #wrapper{
   min-height: 400px;
   width: 960px;
-  margin: 0 auto;
-}
-
-h1 {
-  background-image: url("../images/logo.png");
-  background-repeat: no-repeat;
-  background-position: 20px;
-  height: 220px;
-  text-indent: -200px;
-  overflow: hidden;
+  margin: 0 70px;
 }
 
 nav {
   background-color: #DDD;
+  height: 80px;
+  width: 100%;
   padding: 5px 0
 }
 
 #logo {
-  width: 40px;
+  width: 80px;
   height: auto;
+  padding-top: 5px;
   padding-left: 20px;
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
+  float: right;
+  margin-right: 69%;
 }
+
 nav ul li {
   display: inline-block;
-  margin-left: 30px;
+  margin: 22px 20px;
 }
 
 ul li a{
-  font-family: fantasy;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  align-items: center;
   text-transform: uppercase;
   color: #000;
   text-decoration: none;
@@ -54,45 +61,46 @@ ul li a:hover{
 }
 
 h2 {
+  margin: 25px;
   text-indent: 10px;
-  color: #333;
+  color: rgb(255, 255, 255);
 }
 
 #produtosList{
   display: grid;
   padding: 10px;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 10px;
-  row-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 30px;
 }
 
 #produtosList .cardProdutos {
   background-color: #DDD;
-  border-radius: 5px; 
-  padding: 10px;
-  
+  border-radius: 8px; 
+  box-shadow: 20px 20px 50px -30px rgb(0, 0, 0);
 }
 
 #foto {
   width: 400px;
   height: auto;
-  padding-left: 23px;
-  padding-top: 23px;
+  padding: 18px;
 }
 
 .cardProdutos p {
+
+  text-align: justify;
   display: inline-block;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  margin: 0 0 0 10px;
+  margin: 0 16px 10px 16px;
 }
 
 #contatos h2 {
   grid-area: h2;
 }
 #contatos form {
+  background-color: #DDD;
+  border-radius: 8px;
   grid-area: formulario;
-  padding: 10px;
+  padding: 30px;
   text-align: right;
 }
 #contatos form input,
@@ -113,6 +121,8 @@ h2 {
 }
 
 #contatos div {
+  padding: 8px;
+  background-color: #DDD;
   grid-area: enderecoTelefones;
 }
 #contatos{
