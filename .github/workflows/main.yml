@@ -1,21 +1,41 @@
-on: 
-  push:
-    branches:
-      - main
+on: [push]
+
 jobs:
-  upload_files:
+    deploy_job:
     runs-on: ubuntu-latest
-    name: Upload a builded file.
+    name: deploy
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2.3.4
-    - name: Upload Files
-      id: upload
-      uses: Creepios/sftp-action@v1.0.3
-      with:
-        host: ${{ secrets.ftp_host }}
-        port: 22
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        localPath: './'
-        remotePath: './var/www/html/'
+        - name: Checkout
+        uses: actions/checkout@v2
+        - name: Deploy file
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+            username: ${{ secrets.ftp_username }}
+            server: ${{ secrets.ftp_host }}
+            port: 22
+            local_path: './*'
+            remote_path: '/var/www/app'
+            sftp_only: true
+            password: ${{ secrets.ftp_password }}
+
+# on: 
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   upload_files:
+#     runs-on: ubuntu-latest
+#     name: Upload a builded file.
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2.3.4
+#     - name: Upload Files
+#       id: upload
+#       uses: Creepios/sftp-action@v1.0.3
+#       with:
+#         host: ${{ secrets.ftp_host }}
+#         port: 22
+#         username: ${{ secrets.ftp_username }}
+#         password: ${{ secrets.ftp_password }}
+#         localPath: './'
+#         remotePath: './var/www/html/'
