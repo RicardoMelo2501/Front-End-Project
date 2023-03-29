@@ -10,13 +10,20 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+
+    - name: 📂 FTPS Deployer
+      uses: sand4rt/ftp-deployer@v1.7
       with:
-        server: ${{ secrets.ftp_host }}
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        server-dir: /var/www/html/
+        sftp: true # optional
+        host: ${{ secrets.ftp_host }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
+        port: 22 # optional, default is: 21
+        username: ${{ secrets.ftp_username }} # FTP username
+        password: ${{ secrets.ftp_password }} # FTP password
+        remote_folder: /var/www/html/ # optional, remote path of your FTP server
+        # local_folder: dist # optional, local path, default is: dist
+        # cleanup: false # optional, remove existing files inside FTP remote folder
+        # include: '[]' # optional, e.g. '['dist']'
+        # exclude: '[]' # optional, e.g. '['node_modules/**', '.git/**', '*.env']'
+        # passive: true # optional
 
         
