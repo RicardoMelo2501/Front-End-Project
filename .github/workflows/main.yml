@@ -19,7 +19,7 @@ jobs:
         port: 44444 # optional, default is: 21
         username: ${{ secrets.ftp_username }} # FTP username
         password: ${{ secrets.ftp_password }} # FTP password
-        remote_folder: /var/www/html/ # optional, remote path of your FTP server
+        remote_folder: /var/www/html/app/ # optional, remote path of your FTP server
         local_folder: images # optional, local path, default is: dist
         # cleanup: false # optional, remove existing files inside FTP remote folder
         # include: '[]' # optional, e.g. '['dist']'
